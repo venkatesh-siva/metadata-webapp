@@ -1,2 +1,2 @@
-package com.csye7250.project.webapp.repository;public class NodeRepository {
+package com.csye7250.project.webapp.repository;public interface NodeRepository {
 }
