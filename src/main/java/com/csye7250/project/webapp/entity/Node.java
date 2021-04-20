@@ -1,8 +1,12 @@
 package com.csye7250.project.webapp.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -16,8 +20,32 @@ public class Node {
     private int counts;
     @Column
     private String dbName;
+    
+    @OneToMany
+	@JoinColumn(name = "propertyId")
+    private List<Property> props;
+    
+    @OneToMany
+	@JoinColumn(name = "relationshipId")
+    private List<Relationship> relList;
 
-    public int getNodeId() {
+    public List<Property> getProps() {
+		return props;
+	}
+
+	public void setProps(List<Property> props) {
+		this.props = props;
+	}
+
+	public List<Relationship> getRelList() {
+		return relList;
+	}
+
+	public void setRelList(List<Relationship> relList) {
+		this.relList = relList;
+	}
+
+	public int getNodeId() {
         return nodeId;
     }
 
