@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name="BusinessTerm")
 public class BusinessTerm {
 
     @Id

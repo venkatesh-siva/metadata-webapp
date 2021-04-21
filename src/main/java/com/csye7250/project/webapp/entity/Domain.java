@@ -11,28 +11,27 @@ import javax.persistence.Table;
 import javax.persistence.ManyToMany;
 
 @Entity
-@Table(name="Domain")
 public class Domain {
 
     @Id
     private String dbName;
     @Column
     private String domainName;
-    
+
     @OneToMany
     @JoinColumn(name = "nodeId")
     private List<Node> nodeList;
 
-    @ManyToMany
-    private List<BusinessTerm> busTermList;
-
-    public List<BusinessTerm> getBusTermList() {
-        return busTermList;
-    }
-
-    public void setBusTermList(List<BusinessTerm> busTermList) {
-        this.busTermList = busTermList;
-    }
+//    @ManyToMany
+//    private List<BusinessTerm> busTermList;
+//
+//    public List<BusinessTerm> getBusTermList() {
+//        return busTermList;
+//    }
+//
+//    public void setBusTermList(List<BusinessTerm> busTermList) {
+//        this.busTermList = busTermList;
+//    }
 
     public String getDbName() {
         return dbName;
