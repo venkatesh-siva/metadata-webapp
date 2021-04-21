@@ -2,25 +2,23 @@ package com.csye7250.project.webapp.entity;
 
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "Nodes")
 public class Node {
     @Id
+    @Column(name="nodeId")
     private int nodeId;
     @Column
     private String label;
     @Column
     private int counts;
-    @Column
+
+//    @ManyToOne
     private String dbName;
-    
+
+
     @OneToMany
 	@JoinColumn(name = "propertyId")
     private List<Property> props;
