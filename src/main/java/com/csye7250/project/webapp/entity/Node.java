@@ -15,7 +15,7 @@ public class Node {
     @Column
     private int counts;
 
-//    @ManyToOne
+
     private String dbName;
 
 
