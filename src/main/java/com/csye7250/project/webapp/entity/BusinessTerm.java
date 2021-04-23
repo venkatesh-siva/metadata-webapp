@@ -13,17 +13,30 @@ public class BusinessTerm {
     private String BusinessDesc;
     private String BusType;
 
-    @OneToOne
-    @JoinColumn(name = "propertyId")
-    private Property propertyId;
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(
             name = "DomBusBridge",
             joinColumns = @JoinColumn(name = "dbName"),
             inverseJoinColumns = @JoinColumn(name = "businessId")
     )
     private List<Domain> domainList;
+
+    @ManyToMany
+    @JoinTable(
+            name = "BusPropBridge",
+            joinColumns = @JoinColumn(name = "propertyId"),
+            inverseJoinColumns = @JoinColumn(name = "businessId")
+    )
+    private List<Property> propertyList;
+
+    public List<Property> getPropertyList() {
+        return propertyList;
+    }
+
+    public void setPropertyList(List<Property> propertyList) {
+        this.propertyList = propertyList;
+    }
 
     public List<Domain> getDomainList() {
         return domainList;
@@ -57,11 +70,5 @@ public class BusinessTerm {
         BusType = busType;
     }
 
-    public Property getPropertyId() {
-        return propertyId;
-    }
 
-    public void setPropertyId(Property propertyId) {
-        this.propertyId = propertyId;
-    }
 }

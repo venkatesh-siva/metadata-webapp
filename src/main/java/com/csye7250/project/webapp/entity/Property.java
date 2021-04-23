@@ -1,10 +1,8 @@
 package com.csye7250.project.webapp.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Property {
@@ -20,6 +18,16 @@ public class Property {
 	private int nodeId;
 	
 	private String existingConstraints;
+	@ManyToMany(cascade=CascadeType.ALL, mappedBy="propertyList")
+	private List<BusinessTerm> bTermList ;
+
+	public List<BusinessTerm> getbTermList() {
+		return bTermList;
+	}
+
+	public void setbTermList(List<BusinessTerm> bTermList) {
+		this.bTermList = bTermList;
+	}
 
 	public int getPropertyId() {
 		return propertyId;
