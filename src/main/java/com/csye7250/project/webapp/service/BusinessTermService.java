@@ -30,7 +30,16 @@ public class BusinessTermService {
         }
     }
 
-//    public List<BusinessTerm> getBusinessTermsByDomain(String domainName) {
-//
-//    }
+    public BusinessTerm getBusinessTermsByProperty(int propertyId) throws BusinessTermException {
+
+        try{
+            return this.businessTermRepo.findByPropertyId(propertyId);
+
+        }catch (Exception e){
+            throw new BusinessTermException(e.getMessage());
+        }
+
+    }
+
+
 }

@@ -46,4 +46,15 @@ public class BusinessTermController {
 //            throw new BusinessTermException(CustomStrings.notFound);
 //    }
 
+    @GetMapping("/businessterms")
+    public ResponseEntity<BusinessTerm> getBusinessTermsByDomain(@RequestParam("property") int propertyId) throws BusinessTermException {
+
+        BusinessTerm bussTerm = this.businessTermService.getBusinessTermsByProperty(propertyId);
+
+        if(null!=bussTerm )
+            return new ResponseEntity(bussTerm, HttpStatus.valueOf(200));
+        else
+            throw new BusinessTermException(CustomStrings.notFound);
+    }
+
 }
