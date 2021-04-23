@@ -6,5 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 public interface BusinessTermRepository extends CrudRepository<BusinessTerm, Integer> {
 
 
-    BusinessTerm findByPropertyId(int propertyId);
+
 }
