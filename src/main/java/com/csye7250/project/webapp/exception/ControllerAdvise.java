@@ -27,4 +27,24 @@ public class ControllerAdvise extends ResponseEntityExceptionHandler {
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
     }
+    
+    @ExceptionHandler(PropertyException.class)
+    public ResponseEntity<Error> handleUserException(PropertyException ex) {
+        Error error = new Error();
+        error.setErrormessage(ex.getMessage());
+        if (error.getErrormessage().equals(CustomStrings.notFound))
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
+    }
+    
+    @ExceptionHandler(RelationshipException.class)
+    public ResponseEntity<Error> handleUserException(RelationshipException ex) {
+        Error error = new Error();
+        error.setErrormessage(ex.getMessage());
+        if (error.getErrormessage().equals(CustomStrings.notFound))
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
+    }
 }
