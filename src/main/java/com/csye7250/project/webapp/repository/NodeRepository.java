@@ -8,6 +8,5 @@ import com.csye7250.project.webapp.entity.Node;
 import java.util.List;
 
 public interface NodeRepository extends CrudRepository<Node, Integer> {
-
-    //List<Domain> findByNodeId(int nodeId);
+    Node findByDomainName(String domainName);
 }

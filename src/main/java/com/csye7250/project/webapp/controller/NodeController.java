@@ -27,4 +27,10 @@ public class NodeController {
     public Node findNodeById(@PathVariable int id) {
         return nodeService.findNodeById(id);
     }
+
+
+    @GetMapping("/findByDomain/{domain}")
+    public Node findNodeByDomain(@PathVariable String domainName) {
+        return nodeService.findNodeByDomain(domainName);
+    }
 }

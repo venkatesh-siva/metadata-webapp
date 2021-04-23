@@ -23,4 +23,8 @@ public class NodeService {
     public Node findNodeById(int id) {
         return nodeRepository.findById(id).get();
     }
+
+    public Node findNodeByDomain(String domainName) {
+        return nodeRepository.findByDomainName(domainName);
+    }
 }
