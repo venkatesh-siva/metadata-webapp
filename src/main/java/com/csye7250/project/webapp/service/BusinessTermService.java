@@ -4,6 +4,7 @@ import com.csye7250.project.webapp.entity.BusinessTerm;
 import com.csye7250.project.webapp.exception.BusinessTermException;
 import com.csye7250.project.webapp.repository.BusinessTermRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -30,7 +31,14 @@ public class BusinessTermService {
         }
     }
 
-//    public List<BusinessTerm> getBusinessTermsByDomain(String domainName) {
-//
-//    }
+
+    public BusinessTerm savebusinessTerm(BusinessTerm bterm)throws BusinessTermException {
+
+        try{
+            return this.businessTermRepo.save(bterm);
+        }catch (Exception e ){
+            throw  new BusinessTermException(e.getMessage());
+        }
+
+    }
 }
