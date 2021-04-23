@@ -9,5 +9,5 @@ import java.util.List;
 
 public interface NodeRepository extends CrudRepository<Node, Integer> {
 
-    List<Domain> findByNodeId(int nodeId);
+    //List<Domain> findByNodeId(int nodeId);
 }

@@ -22,9 +22,7 @@ public class DomainService {
         return list;
     }
 
-    public List<Domain> findByDBName(String dbName) {
-        List<Domain> list = new ArrayList<>();
-        domainRepository.findByDBName(dbName).forEach(e -> list.add(e));
-        return list;
+    public Domain findByDBName(String dbName) {
+        return domainRepository.findById(dbName).get();
     }
 }

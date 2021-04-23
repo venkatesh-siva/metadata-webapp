@@ -20,9 +20,7 @@ public class NodeService {
         return list;
     }
 
-    public List<Node> findByNodeId(int nodeId) {
-        List<Node> list = new ArrayList<>();
-        nodeRepository.findAll().forEach(e -> list.add(e));
-        return list;
+    public Node findNodeById(int id) {
+        return nodeRepository.findById(id).get();
     }
 }

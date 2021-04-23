@@ -5,6 +5,7 @@ import com.csye7250.project.webapp.entity.Node;
 import com.csye7250.project.webapp.service.NodeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,8 +23,8 @@ public class NodeController {
         return nodeService.getAllNodes();
     }
 
-    @GetMapping("/findById")
-    public List<Node> findByNodeId(@RequestParam("nodeId") int nodeId) {
-        return nodeService.findByNodeId(nodeId);
+    @GetMapping("/findById/{id}")
+    public Node findNodeById(@PathVariable int id) {
+        return nodeService.findNodeById(id);
     }
 }

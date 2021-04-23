@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface DomainRepository extends CrudRepository<Domain, String> {
 
-    List<Domain> findByDBName(String dbName);
+    //List<Domain> findByDBName(String dbName);
 
 }
